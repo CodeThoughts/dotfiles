@@ -9,6 +9,8 @@ color dracula
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+set backupcopy=yes
+
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
@@ -35,7 +37,7 @@ endif
 " Switch syntax highlighting on when the terminal has colors or when using the
 " GUI (which always has colors).
  if &t_Co > 2 || has("gui_running")
-"  syntax on
+	syntax on
 
   " Also switch on highlighting the last used search pattern.
   set hlsearch
@@ -102,5 +104,15 @@ let g:airline#extensions#tabline#enabled=1
 let g:airline_powerline_fonts=1
 
 " Key Mapping
+
 " TComment
 map <C/> gcc
+
+" Move lines up/down
+nnoremap <C-down> :m .+1<CR>==
+nnoremap <C-up> :m .-2<CR>==
+inoremap <C-down> <Esc>:m .+1<CR>==gi
+inoremap <C-up> <Esc>:m .-2<CR>==gi
+vnoremap <C-down> :m '>+1<CR>gv=gv
+vnoremap <C-up> :m '<-2<CR>gv=gv
+

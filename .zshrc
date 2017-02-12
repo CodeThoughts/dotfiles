@@ -65,7 +65,6 @@ source ~/.aliases
 # export ARCHFLAGS="-arch x86_64"
 
 # Ruby Version Manager
-source /Users/nrdwnd/.rvm/scripts/rvm
 
 # Python configuration
 eval "$(pyenv init -)"
@@ -78,3 +77,5 @@ if [[ $ZSH_EVAL_CONTEXT == 'file' ]]; then
 		source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+# Load unix profile preferences
+source ~/.profile

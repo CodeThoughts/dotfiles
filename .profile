@@ -1,7 +1,3 @@
-export JAVA_HOME="$(/usr/libexec/java_home)"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
+export PATH="$HOME/.rvm/gems/ruby-2.3.1/bin:$HOME/.rvm/bin:$PATH" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 
