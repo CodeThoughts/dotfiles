@@ -1,0 +1,11 @@
+alias zshconfig="vim ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+alias sublime="open -a \"Sublime Text\""
+alias st="open -a \"SourceTree\""
+alias git="/usr/local/bin/git"
+alias vim="/usr/local/bin/vim"
+alias ll="ls -lah"
+alias -s py=vim
+alias -s go=vim
+alias -s js=vim
+
