@@ -1,19 +1,12 @@
-<<<<<<< HEAD
 source ~/.zshenv
-=======
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/nrdwnd/.oh-my-zsh
 
->>>>>>> 80b80cbdf734a9a55a05374f8ad55649a7d60e72
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-<<<<<<< HEAD
 ZSH_THEME="dracula"
-=======
-ZSH_THEME="agnoster"
->>>>>>> 80b80cbdf734a9a55a05374f8ad55649a7d60e72
 
 # Will not prompt default user
 DEFAULT_USER="$USER"
@@ -60,23 +53,14 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-<<<<<<< HEAD
-plugins=(git bundler osx rake ruby capistrano heroku rake rvm autojump command-not-found python pip github gnu-utils history-substring-search zsh-autosuggestions)
+plugins=(git bundler osx rake ruby rvm autojump command-not-found python pip gnu-utils history-substring-search zsh-syntax-highlighting zsh-autosuggestions)
 
-=======
-plugins=(git bundler osx rake ruby capistrano heroku rake rvm autojump command-not-found python pip github gnu-utils history-substring-search zsh-syntax-highlighting zsh-autosuggestions)
-
-# User configuration
-
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH"
->>>>>>> 80b80cbdf734a9a55a05374f8ad55649a7d60e72
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 source ~/.env_keys
 source ~/.aliases
 
-<<<<<<< HEAD
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -93,39 +77,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 if [[ $ZSH_EVAL_CONTEXT == 'file' ]]; then
 		source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-=======
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-
-# Syntax highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Autosugestion
-source ~/.oh-my-zsh/lib/zsh-autosuggestions.zsh 
-
-# Enable JVM cmd
-export JAVA_HOME="`/usr/libexec/java_home`"
-
-# Ruby Version Manager
-source /Users/nrdwnd/.rvm/scripts/rvm
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
->>>>>>> 80b80cbdf734a9a55a05374f8ad55649a7d60e72
