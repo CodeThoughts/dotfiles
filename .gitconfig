@@ -17,7 +17,7 @@
 [diff]
 	tool = Kaleidoscope
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /Users/nrdwnd/.gitignore_global
 	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
