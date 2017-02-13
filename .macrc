@@ -1,0 +1,7 @@
+defaults write com.apple.finder CreateDesktop -bool FALSE;
+defaults write com.apple.finder DisableAllAnimations -bool true;
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true;
+defaults write NSGlobalDomain NSAppSleepDisabled -bool YES;
+defaults write com.apple.notificationcenterui bannerTime 3;
+defaults write com.apple.dashboard mcx-disabled -boolean true;
+defaults write -g QLPanelAnimationDuration -float 0;
