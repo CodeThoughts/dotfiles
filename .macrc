@@ -5,3 +5,8 @@ defaults write NSGlobalDomain NSAppSleepDisabled -bool YES;
 defaults write com.apple.notificationcenterui bannerTime 3;
 defaults write com.apple.dashboard mcx-disabled -boolean true;
 defaults write -g QLPanelAnimationDuration -float 0;
+defaults write com.apple.screencapture location ~/Dropbox/Screenshots;
+
+killall Finder;
+killall Dock;
+killall SystemUIServer;
