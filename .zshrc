@@ -53,7 +53,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git bundler osx rake ruby rvm autojump command-not-found python pip gnu-utils history-substring-search zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git bundler osx rake ruby rvm autojump command-not-found python pip gnu-utils history-substring-search zsh-syntax-highlighting zsh-autocomplete zsh-autosuggestions)
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -63,8 +63,6 @@ source ~/.aliases
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
-# Ruby Version Manager
 
 # Python configuration
 eval "$(pyenv init -)"
@@ -81,3 +79,5 @@ stty -ixon
 
 # Load unix profile preferences
 source ~/.profile
+
+
