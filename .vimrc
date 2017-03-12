@@ -95,6 +95,7 @@ set softtabstop=2
 set smarttab
 
 set noswapfile
+set noundofile
 
 " Airline prefs
 let g:airline#extensions#tabline#enabled=1
