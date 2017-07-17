@@ -1,34 +1,22 @@
 [user]
-	name = mutablemind
-	name = Dmitry
-	email = startrial@me.com
+    name = Dmitry Sirotkin
+    email = contact@dieser.me
 [mergetool]
-	keepBackup = true
+	keepBackup = false
 	prompt = false
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustexitcode = true
-[merge]
-	tool = Kaleidoscope
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[difftool]
-	prompt = false
-[diff]
-	tool = Kaleidoscope
 [core]
-	excludesfile = /Users/nrdwnd/.gitignore_global
 	editor = vim
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [commit]
-	template = /Users/nrdwnd/.stCommitMsg
+	template = ~/.stCommitMsg
 [push]
-	default = upstream
+	default = simple
 [merg]
 	conflictstyle = diff3
-	excludesfile = /Users/nrdwnd/.gitignore
+[remote "origin"]
+    fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[alias]
+    d = difftool
