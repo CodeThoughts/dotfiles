@@ -18,6 +18,7 @@ Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'airblade/vim-gitgutter' " vim git client
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/syntastic' " syntax checker
+Plugin 'VimOutliner' " outline view of a doc, mainly for todos, ideas and objectives
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
