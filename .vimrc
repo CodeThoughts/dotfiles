@@ -3,18 +3,21 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'dracula/vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
+Plugin 'VundleVim/Vundle.vim' " plugin manager
+Plugin 'vim-airline/vim-airline' " bottom status bar
+Plugin 'vim-airline/vim-airline-themes' " botom status themes
+Plugin 'dracula/vim' " vim color scheme
+Plugin 'scrooloose/nerdtree' " left <C-n> tree repo
+Plugin 'majutsushi/tagbar' " right <F8> module artifacts observer
 Plugin 'tpope/vim-fugitive'
-Plugin 'L9'
+Plugin 'kien/ctrlp.vim'
+Plugin 'L9' " extra vim functions
+Plugin 'SuperTab' " auto complete on tab
+Plugin 'snipMate' " template snippets
 Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter' " vim git client
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic' " syntax checker
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
