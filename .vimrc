@@ -115,7 +115,7 @@ set tabstop=4
 set shiftwidth=4
 set smarttab
 set expandtab
-
+set cursorline
 set noswapfile
 set noundofile
 set nobackup
