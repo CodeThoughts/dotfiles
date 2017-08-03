@@ -122,13 +122,15 @@ set nobackup
 
 " KEY MAPPING
 
-" Switch between tabs
+" Switch between buffers
 map <C-Right> :bnext<CR>
 map <C-Left> :bprevious<CR>
 " Tagbar
 map <F8> :TagbarToggle<CR>
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
 
 " UI PREFERENCES
 set statusline+=%#warningmsg#
