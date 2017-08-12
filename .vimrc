@@ -15,6 +15,7 @@ Plugin 'L9' " extra vim functions
 Plugin 'SuperTab' " auto complete on tab
 Plugin 'snipMate' " template snippets
 Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'valloric/youcompleteme' " code complition engine
 Plugin 'airblade/vim-gitgutter' " vim git client
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/syntastic' " syntax checker
