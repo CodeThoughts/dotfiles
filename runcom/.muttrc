@@ -1,0 +1,14 @@
+set editor=`echo \$EDITOR`
+set my_name = "Dmitry"
+
+unset imap_passive
+set imap_keepalive = 300
+set mail_check = 120
+
+set mbox_type=Maildir
+set folder=~/mail
+set header_cache=~/.cache/mutt
+
+auto_view text/html
+alternative_order text/plain text/html
+
