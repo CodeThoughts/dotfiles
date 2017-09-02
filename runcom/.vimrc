@@ -21,32 +21,40 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plugin 'scrooloose/syntastic' " syntax checker
 Plugin 'VimOutliner' " outline view of a doc, mainly for todos, ideas and objectives
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
+" All plugins must be added before the following line
+call vundle#end()
 
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
 syntax on
 color dracula
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-set backupcopy=yes
-
-if has("vms")
-  set nobackup" do not keep a backup file, use versions instead
-else
-  set backup" keep a backup file (restore to previous version)
-  set undofile" keep an undo file (undo changes after closing)
-endif
-set history=50" keep 50 lines of command line history
-set ruler" show the cursor position all the time
-set showcmd" display incomplete commands
-set incsearch" do incremental searching
-
+set nocompatible
+" keep 50 lines of command line history
+set history=50
+set ruler
+set showcmd
+" display incomplete commands
+" do incremental searching
+set incsearch
+" Optimize for fast terminal connections
+set ttyfast
+" Add the g flag to search/replace by default
+set gdefault
+" Use UTF-8 without BOM
+set encoding=utf-8 nobomb
 " Don't use Ex mode, use Q for formatting
+set number
+" Allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+set binary
+set noeol
+set secure
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab
+set cursorline
+set noswapfile
+set noundofile
+set nobackup
 map Q gq
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
@@ -66,17 +74,6 @@ endif
   " I like highlighting strings inside C comments.
 let c_comment_strings=1
 endif
-
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-" Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
 
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
@@ -110,16 +107,6 @@ if has('langmap') && exists('+langnoremap')
   " compatible).
   set langnoremap
 endif
-set number
-" Tab prefs
-set tabstop=4
-set shiftwidth=4
-set smarttab
-set expandtab
-set cursorline
-set noswapfile
-set noundofile
-set nobackup
 
 " KEY MAPPING
 
