@@ -1,6 +1,18 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
-source ~/.aliases
+export PATH="$HOME/bin:$PATH";
+
+# Load the shell dotfiles:
+for file in ~/.{exports,aliases,credentials}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
+
+# Append to the Bash history file, rather than overwriting it
+shopt -s histappend;
+
+# Autocorrect typos in path names when using `cd`
+shopt -s cdspell;
 
 # git branch status in prompt
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
