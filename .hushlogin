@@ -1,1 +1,1 @@
-# prevent showing /etc/motd on ssh login
+# presence of this file in $HOME/ prevents showing /etc/motd on ssh login
