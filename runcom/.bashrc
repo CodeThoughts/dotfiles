@@ -3,7 +3,7 @@
 export PATH="$HOME/bin:$PATH";
 
 # Load the shell dotfiles:
-for file in ~/.{exports,aliases,credentials}; do
+for file in ~/.{functions,exports,aliases,credentials}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
