@@ -1,4 +1,5 @@
-# CodeThoughts Dotfiles (˘▾˘~)
+# codethoughts dotfiles
+---
 
 This is a collection of dotfiles and scripts We use for customizing Operating System ( preliminary OS X and Debian machines ) to preferences and setting up the software development tools We use on a daily basis.
 Please note that the included setup script creates symlinks from your home directory to the files which are located in the directory you cloned this repo.
@@ -32,7 +33,7 @@ $ ./setup.sh
 
 The code is available under the MIT license.
 
-Copyright (c) 2017 CodeThoughts
+Copyright (c) 2017 CodeThoughts (˘▾˘~)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
