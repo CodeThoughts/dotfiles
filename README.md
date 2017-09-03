@@ -21,7 +21,7 @@ $ ./setup.sh
 - Postgres 9.6 with Friends (pg_bouncer, pg_tap, bg_bench, etc.)
 - RabbitMQ
 - `tmux` – Awesome terminal multiplexer, so you don't need tabs when you have persisted sessions. Hence, no slow iTerm anymore.
-- `curl` – Bring me something out of there
+- `curl` – Will bring you a cold beer from the fridge
 - `tree` – Print tree graph of a directory
 - `mutt` – Mail client that works
 - `htop`, `iotop`, `strace`, `multitail` and `lsof` – Investigation tools
