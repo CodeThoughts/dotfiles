@@ -13,6 +13,7 @@ $ ./setup.sh
 ```
 
 ## Yay! What comes with the package? 📦
+- Some auxilary functions (what is my battery level?, who is using my camera?, etc.)
 - Latest `bash`
 - Brew package manager (OS X only)
 - Node.js
