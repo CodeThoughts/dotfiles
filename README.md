@@ -5,7 +5,7 @@ Please note that the included setup script creates symlinks from your home direc
 
 ## Installation 🚚
 
-```sh
+```bash
 $ git clone https://github.com/nicksp/dotfiles.git ~/dotfiles
 $ cd ~/dotfiles
 $ chmod +x setup.sh
@@ -18,15 +18,23 @@ $ ./setup.sh
 - Brew package manager (OS X only)
 - Node.js
 - Vim
+- Vagrant
 - Postgres 9.6 with Friends (pg_bouncer, pg_tap, bg_bench, etc.)
 - RabbitMQ
-- `tmux` – Awesome terminal multiplexer, so you don't need tabs when you have persisted sessions. Hence, no slow iTerm anymore.
+- `tmux` – Awesome terminal multiplexer; you don't need terminal tabs when you have persisted sessions
 - `curl` – Will bring you a cold beer from the fridge
+- `ack` – Your personal police dog (should be called K-9 tho)
 - `tree` – Print tree graph of a directory
 - `mutt` – Mail client that works
 - `htop`, `iotop`, `strace`, `multitail` and `lsof` – Investigation tools
-- `tpp` – Your amazing pitch
 - `rsstail` – RSS client
+
+### TODO
+- [ ] Implement `setup.sh` script
+- [ ] Vagrant debian machine provision
+- [ ] Configure Postfix relay server
+- [ ] Update `iptables`
+- [ ] Install GUI apps (Chrome, Spotify, 1Password, etc.) thru `brew cask`
 
 ## License 📄
 
