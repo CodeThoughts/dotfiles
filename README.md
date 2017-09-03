@@ -1,6 +1,6 @@
-# Dmitry's Dotfiles (˘▾˘~)
+# CodeThoughts Dotfiles (˘▾˘~)
 
-This is a collection of dotfiles and scripts I use for customizing my Operating System ( OS X 🖥 and Debian 💾 ) to my preferences and setting up the software development tools I use on a daily basis.
+This is a collection of dotfiles and scripts We use for customizing Operating System ( preliminary OS X and Debian machines ) to preferences and setting up the software development tools We use on a daily basis.
 Please note that the included setup script creates symlinks from your home directory to the files which are located in the directory you cloned this repo.
 
 ## Installation 🚚
