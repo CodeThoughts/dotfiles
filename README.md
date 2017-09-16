@@ -26,7 +26,7 @@ $ ./setup.sh
 - `ack` – Your personal police dog (should be called K-9 tho)
 - `tree` – Print tree graph of a directory
 - `mutt` – Mail client that works
-- `htop`, `iotop`, `strace`, `multitail` and `lsof` – Investigation tools
+- `htop`, `iotop`, `iftop`, `strace`, `multitail` and `lsof` – Investigation tools
 - `rsstail` – RSS client
 
 ### TODO
