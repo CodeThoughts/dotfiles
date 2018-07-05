@@ -1,27 +1,16 @@
-#!/usr/bin/env bash
+#! /bin/bash
 
-export PATH="$HOME/bin:$PATH";
+source ~/.aliases;
 
-# Load the shell dotfiles:
-for file in ~/.{functions,exports,aliases,credentials}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
-
-# Append to the Bash history file, rather than overwriting it
-shopt -s histappend;
-
-# Autocorrect typos in path names when using `cd`
-shopt -s cdspell;
+force_color_prompt=yes;
 
 # git branch status in prompt
-export GITAWAREPROMPT=~/.bash/git-aware-prompt
-source "${GITAWAREPROMPT}/main.sh"
-export PS1="\u@\h \W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
-export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
-force_color_prompt=yes
+export GITAWAREPROMPT=~/.bash/git-aware-prompt;
+source "${GITAWAREPROMPT}/main.sh";
+export PS1="\u@$(ifconfig | grep "inet " | grep -v 127.0.0. | awk '{print $2}')\[\033[00m\]\[\033[0;32m\]: \w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ ";
+export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ ";
 
-# set vim as default text editor
-export VISUAL=vim
-export EDITOR="$VISUAL"
+export LANG=en_GB.utf-8;
+export LC_ALL=en_GB.UTF-8;
 
+export GOPATH=$(go env GOPATH)
