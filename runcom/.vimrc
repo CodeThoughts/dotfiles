@@ -11,8 +11,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim' " plugin manager
 
-Plugin 'dracula/vim' " vim color scheme
-
 Plugin 'scrooloose/nerdtree' " left <C-n> tree repo
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
@@ -20,12 +18,6 @@ let NERDTreeQuitOnOpen=0
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:NERDTreeWinPos = "left"
-" Close when last buffer is left
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Always start on init
-autocmd vimenter * NERDTree
-" Go to previous (last accessed) window (so it will not focus on NerdTree).
-autocmd VimEnter * wincmd p
 
 Plugin 'majutsushi/tagbar' " right <F8> module artifacts observer
 map <F8> :TagbarToggle<CR>
@@ -33,7 +25,6 @@ map <F8> :TagbarToggle<CR>
 Plugin 'tpope/vim-fugitive' " git perks
 
 Plugin 'kien/ctrlp.vim' " search files, dirs with <C-p>
-let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
@@ -54,10 +45,6 @@ let g:syntastic_always_populate_loc_list=1
 let g:syntastic_auto_loc_list=1
 let g:syntastic_check_on_open=1
 let g:syntastic_check_on_wq=1
-" Latest C++ syntax support (Variodic templates, auto)
-let g:syntastic_cpp_checkers = ['gcc']
-let g:syntastic_cpp_compiler = 'gcc'
-let g:syntastic_cpp_compiler_options = '-std=c++1z'
 
 Plugin 'itchyny/lightline.vim'
 let g:lightline = {
@@ -74,14 +61,12 @@ let g:lightline = {
 " All plugins must be added before the following line
 call vundle#end()
 
-
-
 " #############################################################################
 " ### GENERAL SETUP
 " #############################################################################
 
 syntax on
-color dracula
+colorscheme industry
 set nocompatible
 " keep 50 lines of command line history
 set history=100
