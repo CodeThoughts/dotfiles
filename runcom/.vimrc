@@ -1,3 +1,7 @@
+colorscheme default
+set nocompatible
+filetype plugin on
+
 " #############################################################################
 " ### INSTALL PLUGINS
 " #############################################################################
@@ -11,63 +15,92 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim' " plugin manager
 
+"
+" EDITOR
+"
+
 Plugin 'scrooloose/nerdtree' " left <C-n> tree repo
 map <C-n> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
-let NERDTreeQuitOnOpen=0
+let NERDTreeShowHidden = 1
+let NERDTreeQuitOnOpen = 0
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:NERDTreeWinPos = "left"
 
 Plugin 'majutsushi/tagbar' " right <F8> module artifacts observer
 map <F8> :TagbarToggle<CR>
-
-Plugin 'tpope/vim-fugitive' " git perks
+Plugin 'lyuts/vim-rtags'
 
 Plugin 'kien/ctrlp.vim' " search files, dirs with <C-p>
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
-Plugin 'L9' " extra vim functions
+" Plugin 'Align'
 
-Plugin 'SuperTab' " auto complete on tab key
+Plugin 'vim-airline/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
 
-Plugin 'snipMate' " template snippets
+"
+" EDITOR_END
+"
+
+
+"
+" CODE
+"
+
+Plugin 'tpope/vim-commentary' " gcc
+
+Plugin 'w0rp/ale'
+let g:ale_completion_enabled = 1
+
+Plugin 'maralla/completor.vim'
+let g:completor_clang_binary = '/usr/bin/clang'
+
+Plugin 'google/vim-maktaba'
+Plugin 'google/vim-codefmt'
+
+Plugin 'gilligan/vim-lldb' " Debugger
+
+"
+" CODE_END
+"
+
+"
+" GIT
+"
 
 Plugin 'airblade/vim-gitgutter' " vim git client
+Plugin 'tpope/vim-fugitive' " git perks
 
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"
+" GIT_END
+"
 
-Plugin 'scrooloose/syntastic' " syntax checker
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=1
 
-Plugin 'itchyny/lightline.vim'
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
-      \ },
-      \ }
+"
+" CPP
+"
 
-" All plugins must be added before the following line
+Plugin 'quark-zju/vim-cpp-auto-include'
+Plugin 'bfrg/vim-cpp-modern'
+Plugin 'vim-scripts/taglist.vim'
+
+"
+" CPP_END
+"
+
 call vundle#end()
 
 " #############################################################################
 " ### GENERAL SETUP
 " #############################################################################
 
+set nocp
 syntax on
-colorscheme industry
-set nocompatible
 " keep 50 lines of command line history
 set history=100
 set ruler
@@ -82,20 +115,24 @@ set gdefault
 " Use UTF-8 without BOM
 set encoding=utf-8 nobomb
 " Don't use Ex mode, use Q for formatting
-set number
+set nonumber
 " Allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 set binary
 set noeol
 set secure
-set tabstop=4
-set shiftwidth=4
+
+set tabstop=2
+set shiftwidth=2
 set smarttab
 set expandtab
+
 set cursorline
+
 set noswapfile
 set noundofile
 set nobackup
+
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
@@ -108,21 +145,9 @@ autocmd FileType text setlocal textwidth=78
 if has('mouse')
   set mouse=a
 endif
-" Switch syntax highlighting on when the terminal has colors or when using the
-" GUI (which always has colors).
-if &t_Co > 2 || has("gui_running")
-    " Also switch on highlighting the last used search pattern.
-    set hlsearch
-    " I like highlighting strings inside C comments.
-    let c_comment_strings=1
-endif
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-    command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-        \ | wincmd p | diffthis
-endif
+
+set hlsearch
+
 if has('langmap') && exists('+langnoremap')
   " Prevent that the langmap option applies to characters that result from a
   " mapping.  If unset (default), this may break plugins (but it's backward
@@ -145,3 +170,7 @@ map <C-Left> :bprevious<CR>
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
+highlight Pmenu ctermbg=gray guibg=gray
+highlight PmenuSel ctermbg=gray guibg=gray
+highlight PmenuSbar ctermbg=gray guibg=gray
+highlight PmenuThumb ctermbg=gray guibg=gray
