@@ -133,6 +133,10 @@ set noswapfile
 set noundofile
 set nobackup
 
+set undodir=~/.vim/undo//
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
