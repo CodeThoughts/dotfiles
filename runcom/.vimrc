@@ -129,10 +129,6 @@ set expandtab
 
 set cursorline
 
-set noswapfile
-set noundofile
-set nobackup
-
 set undodir=~/.vim/undo//
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
