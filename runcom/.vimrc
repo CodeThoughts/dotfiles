@@ -56,6 +56,8 @@ Plugin 'tpope/vim-commentary' " gcc
 
 Plugin 'w0rp/ale'
 let g:ale_completion_enabled = 1
+let g:ale_c_parse_compile_commands = 1
+let g:ale_c_build_dir_names = ['build', 'release']
 
 Plugin 'maralla/completor.vim'
 let g:completor_clang_binary = '/usr/bin/clang'
