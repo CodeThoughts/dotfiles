@@ -1,0 +1,32 @@
+Create Both
+Expunge Both
+SyncState *
+
+IMAPAccount icloud
+Host imap.mail.me.com
+User startrial
+PassCmd "gpg -dq /var/mail/icloud/password.gpg"
+SSLType IMAPS
+SSLVersions TLSv1.2
+AuthMechs LOGIN
+PipelineDepth 20
+
+IMAPStore icloud-remote
+Account icloud
+
+MaildirStore icloud-local
+Path /var/mail/icloud/
+Inbox /var/mail/icloud/inbox
+Trash Trash
+
+Channel icloud-folders
+Master :icloud-remote:
+Slave :icloud-local:
+Patterns "INBOX" "Saved" "Receipts" "Drafts" "Archive" "Sent Messages" "Trash"
+Create Both
+Expunge Both
+SyncState *
+
+Group icloud
+Channel icloud-folders
+
