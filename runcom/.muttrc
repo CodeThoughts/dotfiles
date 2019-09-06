@@ -1,14 +1,42 @@
-set editor=`echo \$EDITOR`
-set my_name = "Dmitry"
 
-unset imap_passive
-set imap_keepalive = 300
-set mail_check = 120
-
-set mbox_type=Maildir
-set folder=~/mail
-set header_cache=~/.cache/mutt
-
-auto_view text/html
+set mailcap_path  = ~/.mailcap
+auto_view text/html text/calendar application/ics
 alternative_order text/plain text/html
+bind attach <return>    view-mailcap
 
+macro index A ":set confirmappend=no delete=yes\n<save-message>=Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+macro index R ":set confirmappend=no delete=yes\n<save-message>=Receipts\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
+
+set folder = "/var/mail/icloud/"
+set spoolfile = "+inbox"
+set postponed = "+Drafts"
+set trash = "+Trash"
+set record = "+Sent Messages"
+
+set smtp_url = "smtp://startrial@smtp.mail.me.com:587/"
+set smtp_pass = `gpg -dq /var/mail/icloud/password.gpg`
+set ssl_force_tls = yes
+set smtp_authenticators = 'gssapi:login'
+set crypt_use_gpgme = yes
+
+
+set realname = "Dmitry Sirotkin"
+set from = "startrial@me.com"
+set use_from = yes
+set envelope_from = yes
+set user_agent = no
+
+set imap_keepalive = 100
+set mail_check = 30
+
+set editor = "vim"
+set charset = "utf-8"
+set send_charset = "utf-8"
+
+mailboxes `find /var/mail/icloud/ -maxdepth 1 -type d -name "*" -printf "+'%f'\n " | tail -n +2 | tr '\n' ' '`
+set sidebar_visible=yes
+set mail_check_stats
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+bind index,pager \C] sidebar-next
+bind index,pager \Co sidebar-open
+bind index,pager \C[ sidebar-prev
