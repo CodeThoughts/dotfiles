@@ -1,22 +1,10 @@
+# This is Git's per-user configuration file.
 [user]
-    name = Dmitry
-    email = startrial@me.com
-[mergetool]
-	keepBackup = false
-	prompt = false
-[core]
-	editor = vim
+# Please adapt and uncomment the following lines:
+name = Dmitry Sirotkin
+	email = sirotkin.dmitry@yahoo.com
+	signingKey = 9A8ADD6D70C8A541
 [commit]
-	template = ~/.stCommitMsg
-[push]
-	default = simple
-[merg]
-	conflictstyle = diff3
-[remote "origin"]
-    fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
-[diff]
-    tool = vimdiff
-[difftool]
-    prompt = false
-[alias]
-    d = difftool
+	gpgSign = true
+[gpg]
+	program = gpg2

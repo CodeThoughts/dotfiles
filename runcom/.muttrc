@@ -1,7 +1,6 @@
-
 set mailcap_path  = ~/.mailcap
 auto_view text/html text/calendar application/ics
-alternative_order text/plain text/html
+alternative_order text/html text/plain
 bind attach <return>    view-mailcap
 
 macro index A ":set confirmappend=no delete=yes\n<save-message>=Archive\n<sync-mailbox>:set confirmappend=yes delete=ask-yes\n"
@@ -14,11 +13,10 @@ set trash = "+Trash"
 set record = "+Sent Messages"
 
 set smtp_url = "smtp://startrial@smtp.mail.me.com:587/"
-set smtp_pass = `gpg -dq /var/mail/icloud/password.gpg`
+set smtp_pass = `gpg -dq /etc/mail/icloud.pass.asc`
 set ssl_force_tls = yes
 set smtp_authenticators = 'gssapi:login'
 set crypt_use_gpgme = yes
-
 
 set realname = "Dmitry Sirotkin"
 set from = "startrial@me.com"
@@ -32,11 +30,22 @@ set mail_check = 30
 set editor = "vim"
 set charset = "utf-8"
 set send_charset = "utf-8"
+set pager_stop=yes
+set include=yes
+
+folder-hook . 'set read_inc=1000'
 
 mailboxes `find /var/mail/icloud/ -maxdepth 1 -type d -name "*" -printf "+'%f'\n " | tail -n +2 | tr '\n' ' '`
 set sidebar_visible=yes
 set mail_check_stats
+
+set sort=threads
+set sort_aux=last-date-received
+
 set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
-bind index,pager \C] sidebar-next
+
+bind index,pager \Cj sidebar-next
 bind index,pager \Co sidebar-open
-bind index,pager \C[ sidebar-prev
+bind index,pager \Ck sidebar-prev
+
+source /opt/mutt-dracula-scheme/dracula.muttrc
