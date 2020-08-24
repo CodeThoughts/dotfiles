@@ -5,9 +5,10 @@ SyncState *
 IMAPAccount icloud
 Host imap.mail.me.com
 User startrial
-PassCmd "gpg -dq /var/mail/icloud/password.gpg"
+PassCmd "gpg -dq /etc/mail/icloud.pass.asc"
 SSLType IMAPS
-SSLVersions TLSv1.2
+SSLVersions TLSv1
+CertificateFile /var/mail/certs/icloud.crt
 AuthMechs LOGIN
 PipelineDepth 20
 
@@ -29,4 +30,3 @@ SyncState *
 
 Group icloud
 Channel icloud-folders
-
