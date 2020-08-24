@@ -29,7 +29,7 @@ font pango:DejaVu Sans Mono 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-workspace_layout default
+workspace_layout tabbed
 
 default_border pixel 1
 hide_edge_borders both
@@ -123,9 +123,9 @@ set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 mail
+set $ws8 logs
+set $ws9 mail
+set $ws10 web
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -199,7 +199,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle 
 
-bindsym XF86Display exec --no-startup-id notify-send "Fingerprint to enable/disable uvcvideo" && sudo toggle_uvcvideo.sh
+bindsym XF86Display exec --no-startup-id notify-send "Swipe fingerprint to alter uvcvideo state" && sudo toggle_uvcvideo.sh
 
 bindsym $mod+Ctrl+l exec --no-startup-id /usr/bin/xset dpms force off
 exec_always --no-startup-id /usr/bin/xset s off
@@ -225,8 +225,12 @@ client.background       #F8F8F2
 bar {
   status_command i3blocks
   mode hide
+  hidden_state hide
   position bottom
   workspace_buttons yes
+  tray_output primary
+  font pango:Terminus 8
+  binding_mode_indicator yes
   # colors {
   #   background #282A36
   #   statusline #F8F8F2
@@ -239,3 +243,17 @@ bar {
   #   binding_mode       #FF5555 #FF5555 #F8F8F2
   # }
 }
+
+no_focus [window_role="pop-up"]
+popup_during_fullscreen ignore
+focus_on_window_activation none
+force_display_urgency_hint 250 ms
+
+# Startup apps
+exec --no-startup-id i3-msg 'workspace web; layout tabbed; exec /usr/bin/firefox; workspace 1'
+exec --no-startup-id i3-msg 'workspace mail; layout splitv; exec /usr/bin/urxvtcd -e /usr/bin/neomutt; workspace 1'
+exec --no-startup-id i3-msg 'workspace logs; layout splitv; exec /usr/bin/urxvtcd -e /usr/bin/bash; workspace 1'
+exec --no-startup-id i3-msg 'workspace 1; layout splith; exec /usr/bin/urxvtcd -e /usr/bin/bash'
+
+# switch between the current and the previously focused one
+bindsym $mod+Tab workspace back_and_forth
