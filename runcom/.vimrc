@@ -1,23 +1,57 @@
-colorscheme default
 set nocompatible
-filetype plugin on
+filetype on
+set nocp
+syntax on
+set history=2000
+set ruler
+set showcmd
+set showmatch		" Show matching brackets.
+set incsearch
+set ttyfast
+set gdefault
+set encoding=utf-8
+setglobal fileencoding=utf-8
+set nonumber
+set backspace=indent,eol,start
+set binary
+set noeol
+set secure
+set background=dark
+set laststatus=2
 
-" #############################################################################
-" ### INSTALL PLUGINS
-" #############################################################################
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
 
-" NOTE: Vundle Plugin followed by configuration for the plugin
+set undodir=/home/dmitry/.vim/tmp/undo//
+set backupdir=/home/dmitry/.vim/tmp/backup//
+set directory=/home/dmitry/.vim/tmp/swap//
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+autocmd FileType text setlocal textwidth=78
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim' " plugin manager
+if has('mouse')
+	set mouse=a
+endif
 
-"
-" EDITOR
-"
+set hlsearch!
+nnoremap <F10> :set hlsearch!<CR>
+
+cmap w!! w !sudo tee > /dev/null %
+
+""" Plugin setup
+
+set rtp+=/etc/vim/bundle/Vundle.vim
+call vundle#begin('/etc/vim/bundle')
+
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'scrooloose/nerdtree' " left <C-n> tree repo
 map <C-n> :NERDTreeToggle<CR>
@@ -29,7 +63,6 @@ let g:NERDTreeWinPos = "left"
 
 Plugin 'majutsushi/tagbar' " right <F8> module artifacts observer
 map <F8> :TagbarToggle<CR>
-Plugin 'lyuts/vim-rtags'
 
 Plugin 'kien/ctrlp.vim' " search files, dirs with <C-p>
 let g:ctrlp_working_path_mode = 'ra'
@@ -38,141 +71,28 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
-" Plugin 'Align'
+"Plugin 'vim-airline/vim-airline'
+"let g:airline#extensions#tabline#enabled = 1
+"set laststatus=2 " Always display the statusline in all windows
+"set showtabline=2 " Always display the tabline, even if there is only one tab
+"set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
-Plugin 'vim-airline/vim-airline'
-let g:airline#extensions#tabline#enabled = 1
+Plugin 'airblade/vim-gitgutter'
 
-"
-" EDITOR_END
-"
+"Plugin 'dense-analysis/ale'
+"let g:ale_completion_enabled = 1
 
+Plugin 'ycm-core/YouCompleteMe'
+map <F12> :YcmCompleter GoToDefinition<CR>
+map <c-F> :YcmCompleter Format<CR>
 
-"
-" CODE
-"
+"Plugin 'bfrg/vim-cpp-modern'
 
-Plugin 'tpope/vim-commentary' " gcc
+Plugin 'ap/vim-css-color'
 
-Plugin 'w0rp/ale'
-let g:ale_completion_enabled = 1
-let g:ale_c_parse_compile_commands = 1
-let g:ale_c_build_dir_names = ['build', 'release']
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
-Plugin 'maralla/completor.vim'
-let g:completor_clang_binary = '/usr/bin/clang'
-
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-codefmt'
-
-Plugin 'gilligan/vim-lldb' " Debugger
-
-"
-" CODE_END
-"
-
-"
-" GIT
-"
-
-Plugin 'airblade/vim-gitgutter' " vim git client
-Plugin 'tpope/vim-fugitive' " git perks
-
-"
-" GIT_END
-"
-
-
-"
-" CPP
-"
-
-Plugin 'quark-zju/vim-cpp-auto-include'
-Plugin 'bfrg/vim-cpp-modern'
-Plugin 'vim-scripts/taglist.vim'
-
-"
-" CPP_END
-"
+Plugin 'christoomey/vim-tmux-navigator'
 
 call vundle#end()
-
-" #############################################################################
-" ### GENERAL SETUP
-" #############################################################################
-
-set nocp
-syntax on
-" keep 50 lines of command line history
-set history=100
-set ruler
-set showcmd
-" display incomplete commands
-" do incremental searching
-set incsearch
-" Optimize for fast terminal connections
-set ttyfast
-" Add the g flag to search/replace by default
-set gdefault
-" Use UTF-8 without BOM
-set encoding=utf-8 nobomb
-" Don't use Ex mode, use Q for formatting
-set nonumber
-" Allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-set binary
-set noeol
-set secure
-
-set tabstop=2
-set shiftwidth=2
-set smarttab
-set expandtab
-
-set cursorline
-
-set undodir=~/.vim/undo//
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-
-" Use 256 colours (Use this setting only if your terminal supports 256 colours)
-set t_Co=256
-set fillchars+=stl:\ ,stlnc:\
-set term=xterm-256color
-set termencoding=utf-8
-set colorcolumn=78
-" For all text files set 'textwidth' to 78 characters.
-autocmd FileType text setlocal textwidth=78
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
-
-set hlsearch
-
-if has('langmap') && exists('+langnoremap')
-  " Prevent that the langmap option applies to characters that result from a
-  " mapping.  If unset (default), this may break plugins (but it's backward
-  " compatible).
-  set langnoremap
-endif
-
-
-
-" #############################################################################
-" ### KEY BINDINGS
-" ############################################################################
-
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
-" Switch between buffers
-map <C-Right> :bnext<CR>
-map <C-Left> :bprevious<CR>
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! w !sudo tee > /dev/null %
-
-highlight Pmenu ctermbg=gray guibg=gray
-highlight PmenuSel ctermbg=gray guibg=gray
-highlight PmenuSbar ctermbg=gray guibg=gray
-highlight PmenuThumb ctermbg=gray guibg=gray
+filetype plugin indent on
